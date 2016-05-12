@@ -1,0 +1,164 @@
+ <div class="row" ng-controller=ContactsCtrl>
+     <div class="large-10 columns"> 
+     <div data-alert class="alert-box" ng-show="msg">{{msg}}</div>
+         
+          <!--show contact -->
+         <div class="row" ng-show="contactShow"> 
+             <div class="panel"> 
+             <h3>{{name}}</h3>
+             <ul>
+                 <li><strong>Company</strong>: {{company}}</li>
+                 <li><strong>Email</strong>: {{email}}</li>
+                 <hr>
+                 <h5>Phone numbers</h5>
+                 <li><strong>Work</strong>: {{work_phone}}</li>
+                 <li><strong>Mobile</strong>: {{mobile_phone}}</li>
+                 <li><strong>Home</strong>: {{home_phone}}</li>
+                 <hr>
+                 <h5>Location Info</h5>
+                 <li>{{city}}</li>
+                 <li>{{street_address}}</li>
+             </ul> 
+            </div>
+         </div>
+         
+         <!-- Add form -->
+    <form ng-submit="addFormSubmit()" ng-show="addFormShow">
+        <h3>Add contact</h3>
+       
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Name:
+                    <input type="text" ng-model="name" placeholder="Enter name" required>
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Email:
+                    <input type="text" ng-model="email" placeholder="Enter email" required>
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Company:
+                    <input type="text" ng-model="company" placeholder="Enter company">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Work phone:
+                    <input type="text" ng-model="work_phone" placeholder="Enter work phone">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Mobile phone:
+                    <input type="text" ng-model="mobile_phone" placeholder="Enter mobile phone">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Home phone:
+                    <input type="text" ng-model="home_phone" placeholder="Enter home phone">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>City:
+                    <input type="text" ng-model="city" placeholder="Enter city">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Street Address:
+                    <input type="text" ng-model="street_address" placeholder="Enter Street Address">
+                </label>
+            </div>
+    
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <input type="submit" value="Add contact" class="button"/>           
+            
+            </div>
+        
+        </div>
+     </form> 
+     
+          <!-- Edit form -->
+    <form ng-submit="editFormSubmit()" ng-show="editFormShow">
+        <h3>Edit contact </h3>
+       
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Name:
+                    <input type="text" ng-model="name" placeholder="Enter name" required>
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Email:
+                    <input type="text" ng-model="email" placeholder="Enter email" required>
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Company:
+                    <input type="text" ng-model="company" placeholder="Enter company">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Work phone:
+                    <input type="text" ng-model="work_phone" placeholder="Enter work phone">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Mobile phone:
+                    <input type="text" ng-model="mobile_phone" placeholder="Enter mobile phone">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Home phone:
+                    <input type="text" ng-model="home_phone" placeholder="Enter home phone">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>City:
+                    <input type="text" ng-model="city" placeholder="Enter city">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Street Address:
+                    <input type="text" ng-model="street_address" placeholder="Enter Street Address">
+                </label>
+            </div>
+    
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <input type="submit" value="Update contact" class="button"/>
+            
+            
+            </div>
+        
+        </div>
+     </form> 
+     
+
+    <h3>Contacts ({{contacts.length}})</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="200px">Name</th>
+                <th width="200px">Company</th>  
+                <th width="25%">Email</th>
+                <th width="25%">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contact in contacts">
+                <td><a ng-click="showContact(contact)"> {{contact.name}}</a></td>
+                <td> {{contact.company}}</td>
+                <td >{{contact.email}}</td>
+                <td><a class="button tiny" ng-click="showEditForm(contact)">Edit</a> <a class="button tiny alert" ng-click="removeContact(contact)">Delete</a></td>
+            </tr>
+        </tbody>  
+    </table>
+</div>
+<div class="small-12 large-2 columns">
+    <a class="button large" ng-click="showAddForm()" ng-hide="addFormShow">+</a>
+    <a class="button large" ng-click="hide()" ng-show="addFormShow">-</a>
+    <a class="button large" ng-click="hide()" ng-show="contactShow">-</a>
+    </div>
+</div>
