@@ -39,8 +39,9 @@ angular.module('contactApp.contacts', ['ngRoute', 'firebase'])
     }
     // Hide form
     $scope.hide = function(){
-        $scope.addFormShow = false; 
-        $scope.contactShow = false;
+        $scope.addFormShow  = false; 
+        $scope.contactShow  = false;
+        $scope.editFormShow = false;
         
     }
     // Submit Contacts
